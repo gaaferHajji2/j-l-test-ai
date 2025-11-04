@@ -26,3 +26,15 @@ sns.boxplot(ax=axes[0, 1], data=data, x='Species', y = 'petal length (cm)', hue=
 sns.boxplot(ax=axes[1, 0], data=data, x='Species', y = 'sepal width (cm)', palette='Greys', hue='Species')
 sns.boxplot(ax=axes[1,1], data = data,x='Species', y = 'petal width (cm)', palette='Greys', hue='Species')
 plt.show()
+
+# define x-y plot (pairplot)
+sns.set_theme(
+    rc={
+        "axes.facecolor":"efefef",
+        "figure.facecolor":"efefef"
+    }
+)
+
+graphxy = sns.pairplot(data=data, hue="Species", palette="Greys")
+graphxy.add_legend()
+plt.show()
