@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report
 import xgboost as xgb
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -94,3 +95,8 @@ t2 = np.array([4.2, 3.1, 1.2, 0.5])
 t2 = t2.reshape(1, 4) # model expect array as 2-dimensio
 t3 = data_classifier.predict(t2)
 print(t3)
+# make simple report
+"""
+precision = TP/(TP+FP), recall = TP/(TP+FN),  F1score = 2 ((precision ⋅ recall) / (precision + recall))
+"""
+print(classification_report(y_testing_data, t1))
