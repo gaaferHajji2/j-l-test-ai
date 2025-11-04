@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
+import xgboost as xgb
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -55,7 +56,7 @@ print(x_training_data.head())
 y_training_data = train_data[['Species']]
 print(y_training_data.head())
 
-# deine the x-y testing data
+# define the x-y testing data
 x_testing_data = test_data[[
     'sepal length (cm)', 'petal length (cm)', 
     'sepal width (cm)', 'petal width (cm)'
@@ -63,3 +64,33 @@ x_testing_data = test_data[[
 y_testing_data = test_data[['Species']]
 print(x_testing_data.head())
 print(y_testing_data.head())
+
+# train and test the classifier
+"""
+XGBoost offers multiple evaluation metrics and can accept custom metrics as well. In addition to 
+the AUC metric used here, there are over 20 options, including RMSE, mean absolute percentage 
+error, and mean average precision.
+
+auc: Area under the curve
+
+A default metric is assigned based on whether the model is for prediction (the default is RMSE), 
+classification (the default is logloss), or ranking (the default is map – mean average precision). 
+"""
+data_classifier = xgb.XGBClassifier(eval_metric='auc')
+data_classifier.fit(
+    x_training_data, y_training_data, 
+    eval_set = [
+        (x_testing_data, y_testing_data), 
+        (x_training_data, y_training_data)
+    ]
+)
+
+# check the results
+t1 = data_classifier.predict(x_testing_data)
+print(t1)
+
+# test
+t2 = np.array([4.2, 3.1, 1.2, 0.5])
+t2 = t2.reshape(1, 4) # model expect array as 2-dimensio
+t3 = data_classifier.predict(t2)
+print(t3)
