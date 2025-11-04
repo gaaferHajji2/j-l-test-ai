@@ -3,6 +3,8 @@ import numpy as np
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import ConfusionMatrixDisplay
 import xgboost as xgb
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -100,3 +102,8 @@ print(t3)
 precision = TP/(TP+FP), recall = TP/(TP+FN),  F1score = 2 ((precision ⋅ recall) / (precision + recall))
 """
 print(classification_report(y_testing_data, t1))
+# confusion matrix
+t4 = confusion_matrix(y_testing_data, t1)
+print("Matrix: ", t4)
+ConfusionMatrixDisplay.from_predictions(y_testing_data, t1)
+plt.show()
