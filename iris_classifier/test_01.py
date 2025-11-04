@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from sklearn import datasets
+from sklearn.model_selection import train_test_split
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -38,3 +39,27 @@ sns.set_theme(
 graphxy = sns.pairplot(data=data, hue="Species", palette="Greys")
 graphxy.add_legend()
 plt.show()
+
+# Test the data
+train_data, test_data = train_test_split(data, test_size=0.2, random_state=13)
+print("The train_data is: ", train_data.shape)
+print("The test_data is: ", test_data.shape)
+
+# define the x-y training data for classification
+x_training_data = train_data[[
+    'sepal length (cm)', 'petal length (cm)', 
+    'sepal width (cm)', 'petal width (cm)'
+]]
+print(x_training_data.head())
+
+y_training_data = train_data[['Species']]
+print(y_training_data.head())
+
+# deine the x-y testing data
+x_testing_data = test_data[[
+    'sepal length (cm)', 'petal length (cm)', 
+    'sepal width (cm)', 'petal width (cm)'
+]]
+y_testing_data = test_data[['Species']]
+print(x_testing_data.head())
+print(y_testing_data.head())
