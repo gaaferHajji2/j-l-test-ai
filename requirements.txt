@@ -5,3 +5,6 @@ scikit-learn
 xgboost
 scipy
 tensorflow
+torch
+torchvision
+torchaudio
