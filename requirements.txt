@@ -8,3 +8,5 @@ tensorflow
 torch
 torchvision
 torchaudio
+opencv-python
+opencv-python-headless

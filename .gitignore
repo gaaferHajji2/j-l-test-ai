@@ -1,2 +1,4 @@
 .venv
 *.whl
+*.png
+output_video*.mp4
