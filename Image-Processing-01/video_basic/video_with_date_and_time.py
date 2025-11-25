@@ -3,6 +3,8 @@
 import cv2
 import datetime
 
+# here if we set 0, then the camera will opened, then we can use an speech-to-text packages 
+# to save the frames with texts for video
 cap = cv2.VideoCapture('video.mp4')
 # Get the width and height of video
 width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
