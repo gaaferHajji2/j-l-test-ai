@@ -1,3 +1,5 @@
+# this is important if we have translate for video and we want to display the content of translate 
+# for the video
 import cv2
 import datetime
 
