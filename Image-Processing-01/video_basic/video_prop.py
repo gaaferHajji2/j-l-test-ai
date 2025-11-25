@@ -11,4 +11,3 @@ camera.set(cv2.CAP_PROP_BRIGHTNESS, 80)
 
 # define the contrast of camera
 camera.set(cv2.CAP_PROP_CONTRAST, 55)
-
