@@ -7,7 +7,7 @@ while True:
         break
     cv2.imshow('Video', frame)
     if cv2.waitKey(1) == ord('q'):
-        break;
+        break
     # Check if window is closed
     if cv2.getWindowProperty('Video', cv2.WND_PROP_VISIBLE) < 1:
         break
