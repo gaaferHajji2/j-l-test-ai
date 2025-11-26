@@ -1,4 +1,0 @@
-setuptools
-wheel
-rasa
-rasa[transformers]
